@@ -1,9 +1,3 @@
-#!/usr/bin/python3
-
-# Copyright 2020 BISITE Research Group
-# See LICENSE for details.
-
-
 def handle400error(ns, message):
     """
     Function to handle a 400 (bad arguments code) error.

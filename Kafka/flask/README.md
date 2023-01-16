@@ -1,4 +1,4 @@
-# computer-recomendation-system
+# wake-on-lan-server
 
 ## Setup virtual environment
 ```
@@ -19,3 +19,4 @@ pip install -r requirements.txt
 ```
 python run.py
 ```
+
