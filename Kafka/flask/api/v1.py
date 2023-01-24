@@ -1,5 +1,5 @@
 from flask_restx import Api
-import psycopg2 as psycopg2
+#import psycopg2 as psycopg2
 import pymongo
 
 PASSWORD = "jXueDSBPLJMtzjGl"
@@ -20,4 +20,4 @@ mydb = client["components"]
 cpu_collection = mydb["cpu"]
 
 
-con = psycopg2.connect(dbname=WOL_DB_NAME,user=WOL_USER,password="12345",host=WOL_HOST,port=WOL_PORT)
+#con = psycopg2.connect(dbname=WOL_DB_NAME,user=WOL_USER,password="12345",host=WOL_HOST,port=WOL_PORT)

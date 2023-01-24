@@ -2,8 +2,15 @@ from api.v1 import cpu_collection
 
 class CPU:
 
-    def __init__(self,name):
+    def __init__(self,name,link,cores,turbo,base,cache,tdp,price):
         self.name = name
+        self.link = link
+        self.cores = cores
+        self.turbo = turbo
+        self.base = base
+        self.cache = cache
+        self.tdp = tdp
+        self.price = price
 
     def register(self):
         x = cpu_collection.insert_one(self.__dict__)

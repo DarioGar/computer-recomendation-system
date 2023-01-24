@@ -9,6 +9,7 @@ from api.namespaces.cpus_ns import cpus_ns
 
 app = Flask(__name__)
 
+
 VERSION = (1,0)
 AUTHOR = 'Darío García Malpica'
 
@@ -49,7 +50,7 @@ def register_redirection():
 
 def initialize_app(flask_app):
     """
-    This function initializes the Flask Application, adds the namespace,registers the blueprint configures the JWT and starts the schedule thread.
+    This function initializes the Flask Application, adds the namespace,registers the blueprint configures the JWT.
     """
 
     CORS(flask_app,supports_credentials=True,resources={r'/*': {'origins': '*'}})

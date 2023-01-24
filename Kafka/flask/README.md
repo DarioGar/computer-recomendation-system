@@ -7,7 +7,7 @@ py -3 -m venv venv
 
 ### Activate environment
 ```
-venv\Scripts\activate
+venv\Scripts\Activate.ps1
 ```
 
 ### Install dependencies

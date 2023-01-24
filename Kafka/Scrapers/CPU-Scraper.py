@@ -34,7 +34,7 @@ def build_CPU(data,index,CPU):
         
 
 
-with open('CPU-Pages','r') as pages:
+with open('CPU-Pages.py','r') as pages:
     webs = pages.read()
     page = urllib.request.urlopen("https://www.intel.com/content/www/us/en/products/details/processors/core/i5/products.html")
     mybytes = page.read()
@@ -43,20 +43,22 @@ with open('CPU-Pages','r') as pages:
 
 
     soup = BeautifulSoup(content,'lxml')
-    table_headers = soup.find_all('button',class_='btn-sort')
-    for header in table_headers:
-        print(header.text)
+
 
     producer = KafkaProducer(bootstrap_servers=SERVERS,value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 
-    table_content = soup.find_all('tr')
-    for cpu in table_content:#TR
+    table_content = soup.find('tbody')
+    for cpu in table_content.find_all('tr'):#TR
         CPU = {}
+        link = cpu.find('a')
+        CPU['link'] = None if link is None else 'https://www.intel.com' + link['href']
         for index,data in enumerate(cpu):#TD
             cpu = build_CPU(data.text.strip().split('\n')[0],index,CPU)
-        print(CPU)
+        
         if CPU['status'] == 'Launched':
             producer.send('cpu',CPU)
-        print("=============================")
+            print(CPU)
+            print("=============================")
+
 
     
